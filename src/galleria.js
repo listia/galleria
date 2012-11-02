@@ -375,7 +375,7 @@ var undef,
                 // clear styles
                 var clearStyle = function( elem ) {
                     setStyle( elem, 'none', 'transition' );
-                    if ( Galleria.WEBKIT && Galleria.TOUCH ) {
+                    if ( !Galleria.ANDROID && Galleria.WEBKIT && Galleria.TOUCH ) {
                         setStyle( elem, 'translate3d(0,0,0)', 'transform' );
                         if ( elem.data('revert') ) {
                             elem.css( elem.data('revert') );
@@ -462,7 +462,8 @@ var undef,
                             }( elem )));
 
                             // do the webkit translate3d for better performance on iOS
-                            if( Galleria.WEBKIT && Galleria.TOUCH ) {
+                            // skip Android because translate3d causes scrolling issues on older phones
+                            if( !Galleria.ANDROID && Galleria.WEBKIT && Galleria.TOUCH ) {
 
                                 revert = {};
                                 form = [0,0,0];
