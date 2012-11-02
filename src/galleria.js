@@ -2032,11 +2032,11 @@ Galleria = function() {
 
             // add the prev/next nav and bind some controls
 
-            hover( $( el.close ).bind( 'click', lightbox.hide ).html('&#215;') );
+            hover( $( el.close ).bind( 'click', lightbox.hide ) );
 
             $.each( ['Prev','Next'], function(i, dir) {
 
-                var $d = $( el[ dir.toLowerCase() ] ).html( /v/.test( dir ) ? '&#8249;&nbsp;' : '&nbsp;&#8250;' ),
+                var $d = $( el[ dir.toLowerCase() ] ),
                     $e = $( el[ dir.toLowerCase()+'holder'] );
 
                 $e.bind( 'click', function() {
